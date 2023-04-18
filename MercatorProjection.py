@@ -187,6 +187,7 @@ class Coordinates:
         self.Long = coor_ellip[1]
     
     def meridian_arc(self, datum = False):
+        
         """
         This function calculates the length of the meridian arc using Helmert's method 
         according to (Deakin & Hunter, 2010)
