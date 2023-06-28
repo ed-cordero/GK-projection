@@ -204,27 +204,27 @@ class Coordinates:
         
         return meridian_length
     
-    def poly_xy(self, x=0, y=0, grad=0):
+    def poly_xy(self, x=0, y=0, deg=0):
         """
         
         Parameters
         ----------
-        x : TYPE, optional
-            DESCRIPTION. The default is 0.
-        y : TYPE, optional
-            DESCRIPTION. The default is 0.
-        grad : TYPE, optional
-            DESCRIPTION. The default is 0.
+        x : TYPE float, optional
+            DESCRIPTION: value of the first unknown (the function takes on x but computes based on x**2). The default is 0.
+        y : TYPE float, optional
+            DESCRIPTION: value of the second unkown. The default is 0.
+        deg : TYPE int, optional
+            DESCRIPTION: max degree of a polynomial in x, y. The default is 0.
 
         Returns
         -------
-        poly : TYPE
-            DESCRIPTION.
+        poly : TYPE list
+            DESCRIPTION: returns a list of values for the polynomial (x^2)^(deg-i)y^(i) for i in [0, deg].
 
         """
         poly = []
 
-        for k in range(0,grad+1):
+        for k in range(0,deg+1):
             for i in range(k+1):
                 poly.append((y)**i * (x**2)**(k-i))
                 # if k-i == 3:
@@ -307,25 +307,15 @@ class Coordinates:
         
 # Test code:
     
-t = Coordinates()
-t.Lat = 7.325036667
-t.Long = -72.48744667
-t.to_Gauss_Kruger()
-coor_plane = [t.North, t.East]
+# t = Coordinates()
+# t.Lat = 7.325036667
+# t.Long = -72.48744667
+# t.to_Gauss_Kruger()
+# coor_plane = [t.North, t.East]
 
-print("Gauss-Krüger coordinates:\n{} N, {} E".format(t.North, t.East))
+# print("Gauss-Krüger coordinates:\n{} N, {} E".format(t.North, t.East))
 
-u = Coordinates(coor_gauss_kruger = coor_plane)
-u.to_geodetic()
-print("\nGeodetic coordinates:\nLat {}, Long {}".format(u.Lat, u.Long))
-
-
-            
-        
-            
-            
-        
-    
-        
-    
+# u = Coordinates(coor_gauss_kruger = coor_plane)
+# u.to_geodetic()
+# print("\nGeodetic coordinates:\nLat {}, Long {}".format(u.Lat, u.Long))
         
