@@ -307,15 +307,14 @@ class Coordinates:
         
 # Test code:
     
-# t = Coordinates()
-# t.Lat = 7.325036667
-# t.Long = -72.48744667
-# t.to_Gauss_Kruger()
-# coor_plane = [t.North, t.East]
+t = Coordinates()
+t.Lat = 7.325036667
+t.Long = -72.48744667
+t.to_Gauss_Kruger()
+coor_plane = [t.North, t.East]
 
-# print("Gauss-Krüger coordinates:\n{} N, {} E".format(t.North, t.East))
+print("Gauss-Krüger coordinates:\n{} N, {} E".format(t.North, t.East))
 
-# u = Coordinates(coor_gauss_kruger = coor_plane)
-# u.to_geodetic()
-# print("\nGeodetic coordinates:\nLat {}, Long {}".format(u.Lat, u.Long))
-        
+u = Coordinates(coor_gauss_kruger = coor_plane)
+u.to_geodetic()
+print("\nGeodetic coordinates:\nLat {}, Long {}".format(u.Lat, u.Long))
